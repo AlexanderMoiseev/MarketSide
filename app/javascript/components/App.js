@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import TableComponent from './TableComponent/TableComponent'
 import { tableData } from './TableComponent/TableComponent'
 import { fromJS } from 'immutable';
+import { INC, UPDATE_CURRENCIES } from '../actions/actionList';
+import {getCurrencyData} from '../actions/getCurrencyData'
 
 class CounterComponent extends Component {
   render() {
@@ -26,6 +28,10 @@ class App extends Component {
           <CounterComponent counter={this.props.counter} />
         </div>
         <button onClick={this.props.incrementCounter}>Increment </button>
+
+        <button onClick={this.props.updateCurrencies}>Increment </button>
+
+        <button onClick={this.props.getCurrency}>get monero </button>
       </div>
     );
   }
@@ -37,12 +43,22 @@ function mapStateToProps(state) {
   }
 }
 
+
 function mapDispatchToProps(dispatch) {
   return {
     incrementCounter: () => {
       dispatch({
-        type: "INC"
+        type: INC
       });
+    },
+    updateCurrencies: () => {
+      dispatch({
+        type: UPDATE_CURRENCIES, 
+        payload: 'new valueee'
+      });
+    },
+    getCurrency: (currency) => {
+      dispatch(getCurrencyData(currency))
     }
   };
 }

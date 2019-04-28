@@ -24,7 +24,7 @@ export var tableData = {
     'Currency': 'USD',
     'Cost/Unit': 50,
     'Unit': '1 Hour',
-    'Units Requested': 12
+    'Units Requested': 122
   }, {
     'Currency': 'EURO',
     'Unit': null,
